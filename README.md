@@ -34,6 +34,10 @@ virtualenvs.path = "{cache-dir}\\virtualenvs"
 > exit
 ```
 
+config examples:
+
+`.vscode/launch.json`
+
 ```json
 {
     "version": "0.2.0",
