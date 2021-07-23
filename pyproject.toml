@@ -6,7 +6,7 @@ authors = ["coleyon <24493192+coleyon@users.noreply.github.com>"]
 license = "MIT License"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8 || ^3.9"
 fastapi = {extras = ["all"], version = "^0.67.0"}
 SQLAlchemy = "^1.4.22"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
