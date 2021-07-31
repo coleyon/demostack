@@ -1,5 +1,8 @@
 # demostack
 
+A snippet for creating my backend app, based on the following projects.
+https://github.com/tiangolo/full-stack-fastapi-postgresql
+
 # Local debug config for VSCode on Windows
 
 ## Poetry
