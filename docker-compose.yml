@@ -16,15 +16,17 @@ services:
   adminer:
     image: adminer
     restart: always
+    environment: 
+      ADMINER_PLUGINS: 'tables-filter tinymce'
+      # ADMINER_DESIGN: nette
     ports:
-      - 8080:8080
+      - 9001:8080
 
-  app:
+  backend:
     image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
     depends_on:
       - db
-    env_file:
-      - .deb.env
+    env_file: .dev.env
     environment:
       - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=https://${DOMAIN?Variable not set}
