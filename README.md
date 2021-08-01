@@ -1,7 +1,18 @@
 # demostack
 
 A snippet for creating my backend app, based on the following projects.
+This code is disassembled codes for understanding and applying the original design. Only use for learning.
 https://github.com/tiangolo/full-stack-fastapi-postgresql
+
+**Modifications**:
+
+In shortenaly, this code is degraded version of the original. 
+
+* Changed to use mariadb instead of postgresql
+* Split the frontend and the backend into two different projects
+* Removed Traefik routing and simplified Dockerfile
+
+frontend is here: https://github.com/coleyon/demostack-frontend
 
 # Local debug config for VSCode on Windows
 
