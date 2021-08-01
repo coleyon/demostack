@@ -70,6 +70,7 @@ config examples:
         "console": "integratedTerminal",
         "args": [
             "revision",
+            "--autogenerate",
             "-m",
             "'empty comment.'",
         ],
@@ -140,4 +141,36 @@ config examples:
 
 https://alembic.sqlalchemy.org/en/latest/tutorial.html
 
-`alembic revision -m "some commen"`
+make the version.
+
+```bash
+$ alembic revision --autogenerate -m "some comment.."
+```
+
+```bash
+$ show version history
+
+alembic history --verbose
+Rev: 0672759c3200 (head)
+Parent: <base>
+Path: ${workspaceFolder}/alembic/versions/0672759c3200_empty_comment.py
+
+    'empty comment.'
+
+    Revision ID: 0672759c3200
+    Revises:
+    Create Date: 2021-08-02 00:10:23.529062
+```
+
+
+upgrade to the head, runs alembic/env.py run_migrations_online.
+
+`$ alembic upgrade head`
+
+downgrade to latest version.
+
+```bash
+$ alembic downgrade base
+### or
+$ alembic downgrade -1
+```
