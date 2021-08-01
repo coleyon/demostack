@@ -44,7 +44,8 @@ config examples:
 ```json
 {
     "version": "0.2.0",
-    "configurations": [{
+    "configurations": [
+        {
         "name": "Python FastAPI",
         "type": "python",
         "request": "launch",
@@ -60,7 +61,34 @@ config examples:
             "--reload",
         ],
         "envFile": "${workspaceFolder}/.env",
-    }]
+    },
+    {
+        "name": "Alembic make rev",
+        "type": "python",
+        "request": "launch",
+        "module": "alembic",
+        "console": "integratedTerminal",
+        "args": [
+            "revision",
+            "-m",
+            "'empty comment.'",
+        ],
+        "envFile": "${workspaceFolder}/.env",
+    },
+    {
+        "name": "Alembic migrate to latest",
+        "type": "python",
+        "request": "launch",
+        "module": "alembic",
+        "console": "integratedTerminal",
+        "args": [
+            "upgrade",
+            "head",
+        ],
+        "envFile": "${workspaceFolder}/.env",
+    }
+
+  ]
 }
 ```
 
@@ -106,3 +134,10 @@ config examples:
     }
 }
 ```
+
+
+# Alembic
+
+https://alembic.sqlalchemy.org/en/latest/tutorial.html
+
+`alembic revision -m "some commen"`
