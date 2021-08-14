@@ -1,7 +1,7 @@
 # Use root/example as user/password credentials
-version: "3.3"
-services:
+version: "3.8"
 
+services:
   db:
     image: mariadb
     restart: always
@@ -10,8 +10,8 @@ services:
       MARIADB_DATABASE: demostack
       MARIADB_USER: db_user
       MARIADB_PASSWORD: changethis
-      # TZ: "Asia/Tokyo"
-      # BIND-ADDRESS: 0.0.0.0
+      TZ: "Asia/Tokyo"
+      BIND-ADDRESS: 0.0.0.0
     ports:
       - 3306:3306
     volumes:
@@ -26,19 +26,19 @@ services:
     ports:
       - 9001:8080
 
-  # backend:
-  #   image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
-  #   depends_on:
-  #     - db
-  #   env_file: .dev.env
-  #   environment:
-  #     - SERVER_NAME=${DOMAIN?Variable not set}
-  #     - SERVER_HOST=https://${DOMAIN?Variable not set}
-  #     - SMTP_HOST=${SMTP_HOST}
-  #   build:
-  #     context: .
-  #     args:
-  #       INSTALL_DEV: ${INSTALL_DEV-false}
+  backend:
+    image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
+    depends_on:
+      - db
+    env_file: .dev.env
+    environment:
+      - SERVER_NAME=${DOMAIN?Variable not set}
+      - SERVER_HOST=https://${DOMAIN?Variable not set}
+      - SMTP_HOST=${SMTP_HOST}
+    build:
+      context: .
+      args:
+        INSTALL_DEV: ${INSTALL_DEV-false}
 
 volumes:
   db-data:
