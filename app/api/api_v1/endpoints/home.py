@@ -20,6 +20,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def home(request: Request) -> Any:
+    """Render example page with Jinja2 template"""
     receive = dt.utcnow()
     await sleep(5)
     resp = (dt.utcnow() - receive) * 1000
